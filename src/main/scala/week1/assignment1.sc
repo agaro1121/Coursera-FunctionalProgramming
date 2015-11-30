@@ -41,3 +41,4 @@ def pascal2(c: Int, r: Int): Int = {
 pascal2(0,2)
 pascal2(1,2)
 pascal2(1,3)
+
