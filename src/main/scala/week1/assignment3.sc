@@ -20,7 +20,7 @@ Once again, you can make use of functions isEmpty,
 head and tail on the list of integers coins.
 * */
 //
-def countChange(money: Int, coins: List[Int]): Int = {
+/*def countChange(money: Int, coins: List[Int]): Int = {
   def calculate(a: Int, b: Int, acc: Int, ex: Int): Int = {
     if (acc >= ex){println(s"calculate: a=$a b=$b acc=$acc"); acc}
     else calculate(a,b, acc + b,ex)
@@ -34,7 +34,16 @@ def countChange(money: Int, coins: List[Int]): Int = {
       calculate(a, b, a, money)
     }
     ).filter(_ == money).length
+}*/
+
+def countChange(money: Int, coins: List[Int]): Int = {
+  if(money == 0)
+    1
+  else if(money > 0 && !coins.isEmpty)
+    countChange(money - coins.head, coins) + countChange(money, coins.tail)
+  else
+    0
 }
 val money = 4
-val coins = List(1,2,3)
+val coins = List(1,2)
 countChange(money,coins)
